@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs')
 
 const email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 const password_regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+const only_number_regex = /^[0-9]*$/
 
 const userSchema = mongoose.Schema({
     name: {
@@ -24,7 +25,9 @@ const userSchema = mongoose.Schema({
     handphone: {
         type: String,
         unique: true,
-        required: [true, 'Tolong isi nomor handphone kamu']
+        required: [true, 'Tolong isi nomor handphone kamu'],
+        match: [only_number_regex, 'Tolong isi nomor handphone dengan benar'],
+        minlength: [10, 'Tolong isi nomor handphone dengan benar']
     },
 
     image: String
