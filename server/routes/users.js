@@ -12,7 +12,7 @@ const { multer, multerUpload, sendUploadToGCS } = require('../helpers/image')
 
 router.post('/register', multer.single('image'), sendUploadToGCS, registerUser)
 router.post('/login', loginUser)
-router.patch('/', verifyToken, multerUpload.single('image'), sendUploadToGCS, updateUser)
+router.put('/', verifyToken, multerUpload.single('image'), sendUploadToGCS, updateUser)
 router.put('/pass', verifyToken, changePassword)
 router.delete('/', verifyToken ,deleteUser)
 router.get('/token', verifyToken, verifyUser)

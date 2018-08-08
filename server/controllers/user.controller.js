@@ -2,6 +2,7 @@ const User = require('../models/user.model')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const { sendRegisterEmail } = require('../helpers/mailConfig')
+const CustomError = require('../helpers/customError')
 
 const secret = process.env.SECRET
 
@@ -86,11 +87,20 @@ module.exports = {
 
     changePassword (req, res, next) {
         let { id } = req.decoded
-        let hash = bcrypt.hashSync(req.body.password, 10)
-        
-        User.findOneAndUpdate({_id: id}, {password: hash})
-        .then(() => {
-            res.status(200).send('Berhasil ganti password')
+        User.findById(id)
+        .then(user => {
+            if(!(bcrypt.compareSync(req.body.oldpassword, user.password))) {
+                throw new CustomError('Password yang ingin diganti salah', '404')
+            }
+    
+            let hash = bcrypt.hashSync(req.body.password, 10)
+            User.findOneAndUpdate({_id: id}, {password: hash})
+            .then(() => {
+                res.status(200).json({
+                    message: 'Berhasil ganti password'
+                })
+            })
+            .catch(next)
         })
         .catch(next)
     },
