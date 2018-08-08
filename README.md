@@ -9,6 +9,7 @@ Sistem ini saya buat untuk melewati tes basic skill developer Gigel.id
 1. Di dalam folder client, buka terminal dan jalankan command "npm start" untuk menjalankan client
 1. Daftarkan akun baru dengan memasukan nama, email, password, nomor handphone dan gambar profil kamu
 1. Email tidak bisa sama dengan akun lain dan password harus terdiri dari setidaknya 1 huruf, 1 angka dan panjang 8 karakter
+1. Jika berhasil mendaftar, kamu akan mendapat email selamat datang dari saya
 1. Setelah masuk ke halaman utama, terdapat 2 menu yaitu dashboard dan ganti password
 1. Di menu dashboard kamu dapat mengganti data kamu dengan menekan tombol ganti
 1. Ganti data yang kamu ingin ganti lalu tekan ganti, tekan batal jika kamu berubah pikiran
