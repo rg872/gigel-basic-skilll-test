@@ -7,6 +7,8 @@ Sistem ini saya buat untuk melewati tes basic skill developer Gigel.id
 1. Clone repository ini di komputer kamu
 1. Di dalam folder server, buka terminal dan jalankan command "npm start" untuk menjalankan server
 1. Di dalam folder client, buka terminal dan jalankan command "npm start" untuk menjalankan client
+1. Di browser kamu, masukan "http://localhost:8080/" di address bar dan tekan enter untuk melihat halaman web app ini
+1. Jika kamu sebelumnya sudah login (token masih ada dan valid), kamu akan langsung masuk ke halaman utama. Jika tidak, kamu akan ditunjukan halaman registrasi
 1. Daftarkan akun baru dengan memasukan nama, email, password, nomor handphone dan gambar profil kamu
 1. Email tidak bisa sama dengan akun lain dan password harus terdiri dari setidaknya 1 huruf, 1 angka dan panjang 8 karakter
 1. Jika berhasil mendaftar, kamu akan mendapat email selamat datang dari saya
